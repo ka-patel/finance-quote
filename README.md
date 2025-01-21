@@ -39,7 +39,6 @@ For currency conversion, in order to use any module other than the default
 Alphavanatage for GNUCash, a environment variable named FQ_CURRENCY must be set
 at the OS level.
 
-
 # NAME
 
 Finance::Quote - Get stock and mutual fund quotes from various exchanges
