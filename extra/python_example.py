@@ -8,17 +8,19 @@ from datetime import date
 today = date.today()
 # path_to_file = 'C:\\Users\\kalpesh\\OneDrive\\QuickenStuff\\HELPERS\\'
 
+debug = os.environ.get('DEBUG') or os.environ.get('FQ_DEBUG') or os.environ.get('FQ_GENERICEXECUTOR_DEBUG')
+
 def eprint(*args, **kwargs) :
     print(*args, file=sys.stderr, **kwargs)
 
 def stream_out(lhs, rhs) :
 	print ('!{}:{}'.format(lhs.replace(" ", "_"), rhs), end='')
-	if os.environ.get('DEBUG') or os.environ.get('FQ_DEBUG') :
+	if debug :
 		eprint (lhs, rhs, sep=":")
 
 def main() -> int:
 	
-	if os.environ.get('DEBUG') :
+	if debug :
 		yf.enable_debug_mode()
 
 	tickers = "^DJI!BK"
