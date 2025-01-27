@@ -9,7 +9,7 @@ if ( not $ENV{"ONLINE_TEST"} ) {
 
 if ( not $ENV{"FQ_GENERIC_EXECUTOR"} ) {
     plan skip_all =>
-        'Set $ENV{FQ_GENERIC_EXECUTOR} to run this test. This shouls be set to interpreter binary, like python.';
+        'Set $ENV{FQ_GENERIC_EXECUTOR} to run this test. This should be set to interpreter binary, like python.';
 }
 
 if ( not $ENV{"FQ_GENERIC_FETCHER"} ) {

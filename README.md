@@ -3,8 +3,13 @@
 This repo includes updates that also adds personally developed modules
 for retriving prices for securities and for currency conversion.
 
-For retrieving prices, GenericExecutor and YahooChart are available and
-for currency conversion BankOfItaly and FXRatesAPI modules.
+For retrieving prices, GenericExecutor and YahooChart are available, for
+currency conversion BankOfItaly and FXRatesAPI modules, and AlpacaCrypto
+for crypto currency pricing. Note that AlpacaCrypto crypto module currently
+can retrieve pricing against USD only, thus need to specify symbol in
+following format:
+
+        <CRYPTO_SYMBOL>/USD
 
 GenericExecutor module is technically a bridge between GNUCash and OS via
 Finance::Quote. This module will invoke an executor at the operating system
@@ -38,6 +43,7 @@ a service by Saritra GmbH.
 For currency conversion, in order to use any module other than the default
 Alphavanatage for GNUCash, a environment variable named FQ_CURRENCY must be set
 at the OS level.
+
 
 # NAME
 

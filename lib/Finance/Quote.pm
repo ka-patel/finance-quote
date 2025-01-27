@@ -66,6 +66,7 @@ use vars qw/@ISA @EXPORT @EXPORT_OK @EXPORT_TAGS
     AEX
     ASEGR
     ASX
+    AlpacaCrypto
     AlphaVantage
     BSEIndia
     Bloomberg

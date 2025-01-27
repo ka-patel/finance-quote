@@ -173,6 +173,7 @@ use HTML::TableExtract;
 use Time::Piece;
 use threads;
 use Thread::Queue;
+use Config;
 
 # VERSION
 
@@ -186,12 +187,8 @@ my $browser = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.3
 my $YIND_URL_HEAD = 'https://query1.finance.yahoo.com/v8/finance/chart/';
 my $YIND_URL_TAIL = '?interval=1d&period1=' . $startepoc . '&period2=' . $endepoc;
 
-my $can_use_threads = eval 'use threads; 1';
-
-### [<now>] can_use_threads : $can_use_threads 
-
-my $result_q = Thread::Queue->new;
-my $lock_var : shared;
+# my $can_use_threads = eval {use threads; 1};
+### [<now>] can_use_threads : $Config{usethreads}
 
 sub methods {
     return ( yahoo_chart => \&yahoochart,
@@ -225,7 +222,7 @@ sub yahoochart {
     my $result_q = Thread::Queue->new;
     my $lock_var : shared;
 
-    if ($can_use_threads) {
+    if ($Config{usethreads}) {
 
         my @threads = map {
             threads->create(
